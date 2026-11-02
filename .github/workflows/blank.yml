@@ -18,31 +18,15 @@ jobs:
           python-version: '3.11'
 
       - name: Extract Bot Files
-      - name: Verify Bot Files
-  shell: pwsh
-  run: |
-  Write-Host "Checking extracted bot files..."
-  Get-ChildItem "$env:RUNNER_TEMP\bot" -Recurse
-  
-      - name: Install Dependencies
-  shell: pwsh
-  run: |
-    python -m pip install --upgrade pip
-    pip install -r "$env:RUNNER_TEMP\bot\requirements.txt"
         shell: pwsh
         run: |
           Expand-Archive -Path "$env:GITHUB_WORKSPACE\dumpingbot.zip" -DestinationPath "$env:RUNNER_TEMP\bot" -Force
 
-      - name: Install Dependencies
       - name: Verify Bot Files
         shell: pwsh
         run: |
           Write-Host "Checking extracted bot files..."
           Get-ChildItem "$env:RUNNER_TEMP\bot" -Recurse
-        shell: pwsh
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r "$env:RUNNER_TEMP\bot\requirements.txt"
       - name: Configure Core RDP Settings
         run: |
           # Enable Remote Desktop and disable Network Level Authentication (if needed)
