@@ -37,8 +37,7 @@ jobs:
       - name: Run Bot
         shell: pwsh
         run: |
-          Set-Location "$env:RUNNER_TEMP\bot"
-          python dumpingbot.py
+          Set-Location "$env:RUNNER_TEMP\bot\dumpingbot\dumpingbot.py
       - name: Configure Core RDP Settings
         run: |
           # Enable Remote Desktop and disable Network Level Authentication (if needed)
