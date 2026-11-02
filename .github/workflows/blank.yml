@@ -26,8 +26,7 @@ jobs:
         shell: pwsh
         run: |
           Write-Host "Checking extracted bot files..."
-          Get-ChildItem "$env:RUNNER_TEMP\bot" -Recurse
-          Get-ChildItem "$env:RUNNER_TEMP\bot" -Recurse -Filter requirements.txt | Select-Object -ExpandProperty FullName
+                    Get-ChildItem "$env:RUNNER_TEMP\bot" -Recurse -Filter requirements.txt | Select-Object -ExpandProperty FullName
 
       - name: Install Dependencies
         shell: pwsh
